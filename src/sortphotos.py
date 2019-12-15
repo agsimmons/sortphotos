@@ -264,10 +264,10 @@ def sortPhotos(
         directory where you want to move/copy the files to
     sort_format : str
         date format code for how you want your photos sorted
-        (https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior)
+        (https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior)
     rename_format : str
         date format code for how you want your files renamed
-        (https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior)
+        (https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior)
         None to not rename file
     recursive : bool
         True if you want src_dir to be searched recursively for files (False to search only in top-level of src_dir)
@@ -501,7 +501,7 @@ def main():
         type=str,
         default="%Y/%m-%b",
         help="choose destination folder structure using datetime format \n\
-    https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior. \n\
+    https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior. \n\
     Use forward slashes / to indicate subdirectory(ies) (independent of your OS convention). \n\
     The default is '%%Y/%%m-%%b', which separates by year then month \n\
     with both the month number and name (e.g., 2012/02-Feb).",
@@ -511,7 +511,7 @@ def main():
         type=str,
         default=None,
         help="rename file using format codes \n\
-    https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior. \n\
+    https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior. \n\
     default is None which just uses original filename",
     )
     parser.add_argument(
