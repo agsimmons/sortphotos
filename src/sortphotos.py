@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# encoding: utf-8
 """
 sortphotos.py
 
@@ -8,21 +6,12 @@ Copyright (c) S. Andrew Ning. All rights reserved.
 
 """
 
-from __future__ import print_function
-from __future__ import with_statement
-from __future__ import division
-from builtins import str
-from past.utils import old_div
-from builtins import object
 import subprocess
 import os
 import sys
 import shutil
 
-try:
-    import json
-except:
-    import simplejson as json
+import json
 import filecmp
 from datetime import datetime, timedelta
 import re
@@ -201,7 +190,7 @@ def check_for_early_morning_photos(date, day_begins):
 
 
 #  this class is based on code from Sven Marnach (http://stackoverflow.com/questions/10075115/call-exiftool-from-a-python-script)
-class ExifTool(object):
+class ExifTool:
     """used to run ExifTool from Python and keep it open"""
 
     sentinel = "{ready}"
@@ -368,7 +357,7 @@ def sortPhotos(
             print("Source: " + src_file)
         else:
             # progress bar
-            numdots = int(old_div(20.0 * (idx + 1), num_files))
+            numdots = int((20.0 * (idx + 1)) / num_files)
             sys.stdout.write("\r")
             sys.stdout.write("[%-20s] %d of %d " % ("=" * numdots, idx + 1, num_files))
             sys.stdout.flush()
