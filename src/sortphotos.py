@@ -10,6 +10,10 @@ Copyright (c) S. Andrew Ning. All rights reserved.
 
 from __future__ import print_function
 from __future__ import with_statement
+from __future__ import division
+from builtins import str
+from past.utils import old_div
+from builtins import object
 import subprocess
 import os
 import sys
@@ -138,7 +142,7 @@ def get_oldest_timestamp(
         print("All relevant tags:")
 
     # run through all keys
-    for key in data.keys():
+    for key in list(data.keys()):
 
         # check if this key needs to be ignored, or is in the set of tags that must be used
         if (
@@ -364,7 +368,7 @@ def sortPhotos(
             print("Source: " + src_file)
         else:
             # progress bar
-            numdots = int(20.0 * (idx + 1) / num_files)
+            numdots = int(old_div(20.0 * (idx + 1), num_files))
             sys.stdout.write("\r")
             sys.stdout.write("[%-20s] %d of %d " % ("=" * numdots, idx + 1, num_files))
             sys.stdout.flush()
@@ -427,7 +431,7 @@ def sortPhotos(
         while True:
 
             if (not test and os.path.isfile(dest_file)) or (
-                test and dest_file in test_file_dict.keys()
+                test and dest_file in list(test_file_dict.keys())
             ):  # check for existing name
                 if test:
                     dest_compare = test_file_dict[dest_file]
